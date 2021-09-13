@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+
+    <bean id="companyContext" class="com.epam.homework.context.CompanyContext"/>
+    <bean id="positionService" class="com.epam.homework.service.impl.PositionServiceImpl" autowire="byName"/>
+    <bean id="employeeService" class="com.epam.homework.service.impl.EmployeeServiceImpl" autowire="byType"/>
+    <bean id="salaryService" class="com.epam.homework.service.impl.SalaryServiceImpl"/>
+
+
+<!--    Salary beans-->
+    <bean id="devSalary" class="com.epam.homework.domain.Salary" scope="prototype">
+        <constructor-arg value="250"/>
+    </bean>
+    <bean id="pmSalary" class="com.epam.homework.domain.Salary" scope="prototype">
+        <constructor-arg value="300"/>
+    </bean>
+    <bean id="teamLeadSalary" class="com.epam.homework.domain.Salary" scope="prototype">
+        <constructor-arg value="400"/>
+    </bean>
+    <bean id="assistantSalary" class="com.epam.homework.domain.Salary" scope="prototype">
+        <constructor-arg value="200"/>
+    </bean>
+    <bean id="arcSalary" class="com.epam.homework.domain.Salary" scope="prototype">
+        <constructor-arg value="320"/>
+    </bean>
+    <bean id="testerSalary" class="com.epam.homework.domain.Salary" scope="prototype">
+        <constructor-arg value="150"/>
+    </bean>
+<!---->
+
+<!--Employee-->
+
+
+
+<!---->
+
+<!--Positions-->
+    <bean id="developerPos" class="com.epam.homework.domain.Position" scope="prototype">
+        <constructor-arg value="Developer "/>
+        <constructor-arg ref="devSalary"/>
+        <constructor-arg value="4"/>
+        <constructor-arg>
+            <list>
+                <bean id="developer1" class="com.epam.homework.domain.Employee" scope="prototype">
+                    <constructor-arg value="Jim "/>
+                    <constructor-arg value="Halpert"/>
+                </bean>
+                <bean id="developer2" class="com.epam.homework.domain.Employee" scope="prototype">
+                    <constructor-arg value="Pam "/>
+                    <constructor-arg value="Beesly"/>
+                </bean>
+                <bean id="developer3" class="com.epam.homework.domain.Employee" scope="prototype">
+                    <constructor-arg value="Dwight "/>
+                    <constructor-arg value="Schrute"/>
+                </bean>
+            </list>
+        </constructor-arg>
+    </bean>
+    <bean id="productManagerPos" class="com.epam.homework.domain.Position" scope="prototype">
+        <constructor-arg value="Product Manager "/>
+        <constructor-arg ref="pmSalary"/>
+        <constructor-arg value="1"/>
+        <constructor-arg>
+            <list>
+                <bean id="productManager1" class="com.epam.homework.domain.Employee" scope="prototype">
+                    <constructor-arg value="Erin "/>
+                    <constructor-arg value="Hanon"/>
+                </bean>
+            </list>
+        </constructor-arg>
+    </bean>
+
+    <bean id="teamLeadPos" class="com.epam.homework.domain.Position" scope="prototype">
+        <constructor-arg value="Team Lead "/>
+        <constructor-arg ref="teamLeadSalary"/>
+        <constructor-arg value="1"/>
+        <constructor-arg>
+            <list>
+                <bean id="teamLead" class="com.epam.homework.domain.Employee" scope="prototype">
+                    <constructor-arg value="Michael "/>
+                    <constructor-arg value="Scott"/>
+                </bean>
+            </list>
+        </constructor-arg>
+    </bean>
+
+    <bean id="assistantPos" class="com.epam.homework.domain.Position" scope="prototype">
+        <constructor-arg value="Assistant "/>
+        <constructor-arg ref="assistantSalary"/>
+        <constructor-arg value="3"/>
+        <constructor-arg>
+            <list>
+                <bean id="assistant1" class="com.epam.homework.domain.Employee" scope="prototype">
+                    <constructor-arg value="Kevin "/>
+                    <constructor-arg value="Malon"/>
+                </bean>
+                <bean id="assistant2" class="com.epam.homework.domain.Employee" scope="prototype">
+                    <constructor-arg value="Toby "/>
+                    <constructor-arg value="Flenderson"/>
+                </bean>
+            </list>
+        </constructor-arg>
+    </bean>
+
+    <bean id="architectPos" class="com.epam.homework.domain.Position" scope="prototype">
+        <constructor-arg value="architect "/>
+        <constructor-arg ref="arcSalary"/>
+        <constructor-arg value="2"/>
+        <constructor-arg>
+            <list>
+                <bean id="architect1" class="com.epam.homework.domain.Employee" scope="prototype">
+                    <constructor-arg value="Robert "/>
+                    <constructor-arg value="California"/>
+                </bean>
+            </list>
+        </constructor-arg>
+    </bean>
+
+    <bean id="testerPos" class="com.epam.homework.domain.Position" scope="prototype">
+        <constructor-arg value="Tester "/>
+        <constructor-arg ref="testerSalary"/>
+        <constructor-arg value="3"/>
+        <constructor-arg>
+            <list>
+                <bean id="tester1" class="com.epam.homework.domain.Employee" scope="prototype">
+                    <constructor-arg value="Kelly "/>
+                    <constructor-arg value="Kapoor"/>
+                </bean>
+            </list>
+        </constructor-arg>
+    </bean>
+<!---->
+
+</beans>
